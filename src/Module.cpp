@@ -60,7 +60,12 @@ void ConfigServer(){
             { request->send (SPIFFS,"/dscripts.js"); });
   server.on("/",HTTP_GET,[](AsyncWebServerRequest *request)
             { request->send (SPIFFS,"/index.html"); });           
-
+  server.on("/button",HTTP_GET,[](AsyncWebServerRequest *request)
+            { request->send (SPIFFS,"/button.html"); });
+  server.on("/info",HTTP_GET,[](AsyncWebServerRequest *request)
+            { request->send (SPIFFS,"/info.html"); });
+  server.on("/1",HTTP_GET,[](AsyncWebServerRequest *request)
+            { request->send (SPIFFS,"/1.jpg"); });
 MDNS.addService("http","tcp",80);
 server.begin();
 }
