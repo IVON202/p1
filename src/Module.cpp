@@ -64,6 +64,11 @@ void setup_wifi() {
 }
 
 void setup_wifiAP(){
+
+    if(!WiFi.softAPConfig(ip,gateways,subnets)){
+        Serial.println("AP Config Failed");
+    }
+
     WiFi.mode(WIFI_AP);
     WiFi.softAP(ssid, password);
 
@@ -128,6 +133,9 @@ void ConfigServer(){
             { request->send (SPIFFS,"/config.html"); });
   server.on("/sc.js",HTTP_GET,[](AsyncWebServerRequest *request)
             { request->send (SPIFFS,"/sc.js"); });
+  server.on("/saveConfig",HTTP_POST,handleSaveConfig);
+  server.on("/networksConfig",HTTP_POST,handleNetworksConfig);
+
 MDNS.addService("http","tcp",80);
 server.begin();
 }
@@ -380,3 +388,23 @@ void handleNetworksConfig(AsyncWebServerRequest *request)
     }
 }
 
+void handleSaveConfig(AsyncWebServerRequest *request)
+{
+  String action;
+  if (request->hasParam("action", true))
+  {
+    action = request->getParam("action", true)->value();
+    if (action == "complete")
+    {
+      skip = true;
+      // Perform complete action
+      request->send(200, "text/plain", "Complete action performed.");
+    }
+    else if (action == "restart")
+    {
+      request->send(200, "text/plain", "Restarting ESP.");
+      delay(2000);
+      ESP.restart();
+    }
+  }
+}

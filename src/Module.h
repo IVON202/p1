@@ -61,7 +61,8 @@ extern const char* password;
 
 /*----------End Variable-----------*/
 
-/*-------------Start Funtion-------------*/
+/*-------------Start Funtion----
+---------*/
 void writeEnvFile();
 void readEnvFile();
 void updteEnvVariable(const String &ket,const String &value);
@@ -74,6 +75,8 @@ void setup_wifiAP();
 void ConfigServer();
 
 void handleIndex (AsyncWebServerRequest *requset);
+void handleSaveConfig (AsyncWebServerRequest *requset);
+void handleNetworksConfig (AsyncWebServerRequest *requset);
 
 
 #endif
