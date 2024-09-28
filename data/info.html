@@ -7,46 +7,80 @@
   <link href="styles.css" rel="stylesheet">
   <script src="dscripts.js"></script>
 </head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Welcom </title>
+    <!-- Bootstrap CSS -->
+    <style>
+        /* Custom Orange-Black Theme */
+        body {
+            background-color: #1a1a1a; /* ดำ */
+            color: #f0f0f0; /* สีตัวอักษร */
+        }
+        .navbar, footer {
+            background-color: #333333; /* สีดำเข้ม */
+        }
+        .navbar-brand, .nav-link, footer p {
+            color: #f0a500 !important; /* สีส้ม */
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ffcc80 !important; /* สีส้มอ่อนเวลา hover */
+        }
+        .bg-primary {
+            background-color: #ff6f00 !important; /* สีส้มเข้ม */
+        }
+        .btn-primary {
+            background-color: #ff6f00; /* ปุ่มสีส้ม */
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #ff8c1a; /* ปุ่มสีส้มอ่อนเมื่อ hover */
+        }
+        h1, h2, h3, .lead, .text-center {
+            color: #f0a500; /* ใช้สีส้มกับหัวข้อ */
+        }
+        .bg-light {
+            background-color: #333333 !important; /* พื้นหลังสีดำ */
+        }
+        .form-control, .form-label, textarea {
+            background-color: #262626;
+            border: 1px solid #ff6f00;
+            color: #f0f0f0;
+        }
+        .form-control:focus {
+            border-color: #ff8c1a;
+            box-shadow: none;
+        }
+    </style>
+</head>
 <body>
 
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-
-    <div class="container-fluid">
-      <!-- Links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Network">Network</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="info">My CV</a>
-        </li>
-      </ul>
-    </div>
-  
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">Welcome</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#"> My Cv </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="Network">Network</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="sensor">Sensor</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
   </nav>
-
-  <div class="container mt-3">
-    <table class="table" data-bs-theme="dark">
-      <thead>
-        <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Nanthawat</td>
-          <td>Saeliw</td>
-          <td>Non@example.com</td>
-        </tr>
-  
-      </tbody>
-    </table>
-  </div>
 
   <div class="container mt-3">           
     <img src="1"> 

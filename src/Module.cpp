@@ -121,8 +121,8 @@ void ConfigServer(){
             { request->send (SPIFFS,"/dscripts.js"); });
   server.on("/",HTTP_GET,[](AsyncWebServerRequest *request)
             { request->send (SPIFFS,"/index.html"); });           
-  server.on("/button",HTTP_GET,[](AsyncWebServerRequest *request)
-            { request->send (SPIFFS,"/button.html"); });
+  server.on("/sensor",HTTP_GET,[](AsyncWebServerRequest *request)
+            { request->send (SPIFFS,"/Sensor.html"); });
   server.on("/info",HTTP_GET,[](AsyncWebServerRequest *request)
             { request->send (SPIFFS,"/info.html"); });
   server.on("/1",HTTP_GET,[](AsyncWebServerRequest *request)
@@ -135,6 +135,10 @@ void ConfigServer(){
             { request->send (SPIFFS,"/sc.js"); });
   server.on("/saveConfig",HTTP_POST,handleSaveConfig);
   server.on("/networksConfig",HTTP_POST,handleNetworksConfig);
+
+  server.on("/test",HTTP_GET,[](AsyncWebServerRequest *request)
+            { request->send (SPIFFS,"/test.html"); });   
+
 
 MDNS.addService("http","tcp",80);
 server.begin();
