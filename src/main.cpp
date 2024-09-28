@@ -11,5 +11,8 @@ void setup() {
 
 void loop() {
     ULSC();
+    ULSC2();
+    Serial.println(Vul);
+    Serial.println(Vull);
 
 }

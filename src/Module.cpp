@@ -131,11 +131,10 @@ void ConfigServer(){
   server.on("/sensor",HTTP_GET,[](AsyncWebServerRequest *request)
             { request->send (SPIFFS,"/Sensor.html"); });
   server.on("/getSensorData", HTTP_GET, [](AsyncWebServerRequest *request) {
-            String jsonResponse = "{\"Ultrasonic_cm\": " + String(Vul) + "}";
-            request->send(200, "application/json", jsonResponse);});
-  server.on("/getSensorData", HTTP_GET, [](AsyncWebServerRequest *request) {
-            String jsonResponse = "{\"Ultrasonic_inc\": " + String(Vull) + "}";
-            request->send(200, "application/json", jsonResponse);});
+            String jsonResponse = "{\"Ultrasonic_cm\": " + String(Vul) + 
+            ", \"Ultrasonic_inc\": " + String(Vull) + "}";
+    request->send(200, "application/json", jsonResponse);});
+
 
 
   server.on("/info",HTTP_GET,[](AsyncWebServerRequest *request)
@@ -429,6 +428,7 @@ void handleSaveConfig(AsyncWebServerRequest *request)
 
 int ULSC(){
   Vul = ultrasonic2.read(CM);
+  
 
   delay(1500);
 return Vul;
