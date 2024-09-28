@@ -19,6 +19,7 @@ WiFi 3 Mode
 #include <ESPAsyncWebServer.h>
 #include <ESPmDNS.h>
 #include <map>
+#include <Ultrasonic.h>
 
 /*----------End Lid-----------*/
 
@@ -58,6 +59,8 @@ extern AsyncWebServer server;
 extern const char* ssid;
 extern const char* password;
 
+extern int Vul;
+
 
 /*----------End Variable-----------*/
 
@@ -77,6 +80,6 @@ void ConfigServer();
 void handleIndex (AsyncWebServerRequest *requset);
 void handleSaveConfig (AsyncWebServerRequest *requset);
 void handleNetworksConfig (AsyncWebServerRequest *requset);
-
+int ULSC();
 
 #endif

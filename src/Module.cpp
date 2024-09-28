@@ -40,7 +40,10 @@ String gateway;
 String subnet;
 String dnss;
 
+int Vul;
 AsyncWebServer server(80);
+
+Ultrasonic ultrasonic2(26);	//sensor
 
 void setup_wifi() {
   delay(10);
@@ -81,6 +84,8 @@ void setup_wifiAP(){
 }
 
 void ConfigServer(){
+
+
   if(!SPIFFS.begin(true)){
     Serial.println("Error Starting SPIFFS!!!");
     return;
@@ -122,7 +127,10 @@ void ConfigServer(){
   server.on("/",HTTP_GET,[](AsyncWebServerRequest *request)
             { request->send (SPIFFS,"/index.html"); });           
   server.on("/sensor",HTTP_GET,[](AsyncWebServerRequest *request)
-            { request->send (SPIFFS,"/Sensor.html"); });
+            {int s1 = Vul ;
+                 request->send (SPIFFS,"/Sensor.html"); });
+
+
   server.on("/info",HTTP_GET,[](AsyncWebServerRequest *request)
             { request->send (SPIFFS,"/info.html"); });
   server.on("/1",HTTP_GET,[](AsyncWebServerRequest *request)
@@ -138,7 +146,6 @@ void ConfigServer(){
 
   server.on("/test",HTTP_GET,[](AsyncWebServerRequest *request)
             { request->send (SPIFFS,"/test.html"); });   
-
 
 MDNS.addService("http","tcp",80);
 server.begin();
@@ -411,4 +418,14 @@ void handleSaveConfig(AsyncWebServerRequest *request)
       ESP.restart();
     }
   }
+}
+
+int ULSC(){
+  Vul = ultrasonic2.read(CM);
+  Serial.print("Sensor 02: ");
+  Serial.print(Vul); // Prints the distance making the unit explicit
+  Serial.println("cm");
+
+  delay(4000);
+return Vul;
 }
