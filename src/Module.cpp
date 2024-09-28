@@ -41,6 +41,7 @@ String subnet;
 String dnss;
 
 int Vul;
+int Vull;
 AsyncWebServer server(80);
 
 Ultrasonic ultrasonic2(26);	//sensor
@@ -125,10 +126,16 @@ void ConfigServer(){
   server.on("/dscripts.js",HTTP_GET,[](AsyncWebServerRequest *request)
             { request->send (SPIFFS,"/dscripts.js"); });
   server.on("/",HTTP_GET,[](AsyncWebServerRequest *request)
-            { request->send (SPIFFS,"/index.html"); });           
+            { request->send (SPIFFS,"/index.html"); });   
+
   server.on("/sensor",HTTP_GET,[](AsyncWebServerRequest *request)
-            {int s1 = Vul ;
-                 request->send (SPIFFS,"/Sensor.html"); });
+            { request->send (SPIFFS,"/Sensor.html"); });
+  server.on("/getSensorData", HTTP_GET, [](AsyncWebServerRequest *request) {
+            String jsonResponse = "{\"Ultrasonic_cm\": " + String(Vul) + "}";
+            request->send(200, "application/json", jsonResponse);});
+  server.on("/getSensorData", HTTP_GET, [](AsyncWebServerRequest *request) {
+            String jsonResponse = "{\"Ultrasonic_inc\": " + String(Vull) + "}";
+            request->send(200, "application/json", jsonResponse);});
 
 
   server.on("/info",HTTP_GET,[](AsyncWebServerRequest *request)
@@ -422,10 +429,14 @@ void handleSaveConfig(AsyncWebServerRequest *request)
 
 int ULSC(){
   Vul = ultrasonic2.read(CM);
-  Serial.print("Sensor 02: ");
-  Serial.print(Vul); // Prints the distance making the unit explicit
-  Serial.println("cm");
 
-  delay(4000);
+  delay(1500);
 return Vul;
+}
+
+int ULSC2(){
+  Vull = ultrasonic2.read(INC);
+
+  delay(1500);
+return Vull;
 }

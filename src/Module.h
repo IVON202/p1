@@ -60,6 +60,7 @@ extern const char* ssid;
 extern const char* password;
 
 extern int Vul;
+extern int Vull;
 
 
 /*----------End Variable-----------*/
@@ -81,5 +82,6 @@ void handleIndex (AsyncWebServerRequest *requset);
 void handleSaveConfig (AsyncWebServerRequest *requset);
 void handleNetworksConfig (AsyncWebServerRequest *requset);
 int ULSC();
+int ULSC2();
 
 #endif
