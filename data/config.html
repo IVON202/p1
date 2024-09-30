@@ -6,8 +6,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="styles.css" rel="stylesheet">
   <script src="dscripts.js"></script>
-</head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Welcom </title>
+    <!-- Bootstrap CSS -->
+    <style>
+        /* Custom Orange-Black Theme */
+        body {
+            background-color: #1a1a1a; /* ดำ */
+            color: #f0f0f0; /* สีตัวอักษร */
+        }
+        .navbar, footer {
+            background-color: #333333; /* สีดำเข้ม */
+        }
+        .navbar-brand, .nav-link, footer p {
+            color: #f0a500 !important; /* สีส้ม */
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ffcc80 !important; /* สีส้มอ่อนเวลา hover */
+        }
+        .bg-primary {
+            background-color: #ff6f00 !important; /* สีส้มเข้ม */
+        }
+        .btn-primary {
+            background-color: #ff6f00; /* ปุ่มสีส้ม */
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #ff8c1a; /* ปุ่มสีส้มอ่อนเมื่อ hover */
+        }
+        h1, h2, h3, .lead, .text-center {
+            color: #f0a500; /* ใช้สีส้มกับหัวข้อ */
+        }
+        .bg-light {
+            background-color: #333333 !important; /* พื้นหลังสีดำ */
+        }
+        .form-control, .form-label, textarea {
+            background-color: #262626;
+            border: 1px solid #ff6f00;
+            color: #f0f0f0;
+        }
+        .form-control:focus {
+            border-color: #ff8c1a;
+            box-shadow: none;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Welcom </title>
@@ -56,6 +99,34 @@
 </head>
 
 <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="pngegg.png" alt="Logo" width="30" height="30">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="info"> My Cv </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Network</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Sensor">Sensor</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
     <div class="b-example-divider"></div>
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
